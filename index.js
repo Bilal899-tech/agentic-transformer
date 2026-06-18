@@ -1,4 +1,9 @@
-import { writeFileSync } from 'fs';
+import { writeFileSync, mkdirSync, existsSync } from 'fs';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const outputDir = join(__dirname, 'output');
+if (!existsSync(outputDir)) mkdirSync(outputDir, { recursive: true });
 import { createInterface } from 'readline';
 import { searchDuckDuckGo } from './search.js';
 import { crawl } from './crawler.js';
@@ -13,8 +18,13 @@ if (!input) {
   rl.close();
 }
 
-console.log(`\nnexagaze project — built by Founder Bilal`);
-console.log(`Contact: ai@nexagaze.com | WhatsApp: 03103860653`);
+console.log(`\n╔══════════════════════════════════════════╗`);
+console.log(`║     NEXAGAZE - Agentic Transformer      ║`);
+console.log(`║     AI-Powered Lead Intelligence CLI     ║`);
+console.log(`╠══════════════════════════════════════════╣`);
+console.log(`║  Built by Nexagaze Founder Bilal        ║`);
+console.log(`║  Contact: ai@nexagaze.com               ║`);
+console.log(`╚══════════════════════════════════════════╝`);
 console.log(`\n[agentic-transformer] Input: "${input}"\n`);
 
 let sources = [];
@@ -63,7 +73,12 @@ if (isUrl(input)) {
 
 if (sources.length === 0) {
   console.log('\nNo data to analyze.\n');
-  process.exitCode = 0;
+console.log(`\n╔══════════════════════════════════════════╗`);
+console.log(`║      Agentic Transformer Complete!      ║`);
+console.log(`║     Nexagaze — AI Lead Intelligence     ║`);
+console.log(`╚══════════════════════════════════════════╝\n`);
+
+process.exitCode = 0;
 } else {
   const step = isUrl(input) ? '2' : '3';
   console.log(`\n[${step}/3] Extracting intelligence with AI...`);
@@ -72,7 +87,7 @@ if (sources.length === 0) {
   if (leads.length === 0) {
     console.log('       No leads extracted.\n');
   } else {
-    const filename = `leads-${Date.now()}.json`;
+    const filename = join(outputDir, `leads-${Date.now()}.json`);
     writeFileSync(filename, JSON.stringify(leads, null, 2));
     console.log(`       ${leads.length} leads saved to ${filename}\n`);
     console.log('=== EXTRACTED LEADS ===');

@@ -3,6 +3,8 @@ node_modules/
 uploads/
 data/
 posts/
+output/
+leads-*.json
 *.log
 start_test.txt
 start_err.txt

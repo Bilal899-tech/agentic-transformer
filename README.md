@@ -1,3 +1,13 @@
+```
+╔══════════════════════════════════════════╗
+║     NEXAGAZE - Agentic Transformer      ║
+║     AI-Powered Lead Intelligence CLI     ║
+╠══════════════════════════════════════════╣
+║  Built by Nexagaze Founder Bilal        ║
+║  Contact: ai@nexagaze.com               ║
+╚══════════════════════════════════════════╝
+```
+
 # Agentic Transformer — nexagaze project
 
 > Built by Founder Bilal
